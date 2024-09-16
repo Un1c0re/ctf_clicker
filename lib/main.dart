@@ -1,3 +1,4 @@
+import 'package:ctf_clicker/utils/constants.dart';
 import 'package:ctf_clicker/views/home/home.dart';
 import 'package:flutter/material.dart';
 
@@ -10,11 +11,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DeviceScreenConstants.init(context);
     return MaterialApp(
       title: 'Clicker',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.indigo,
+            brightness: Brightness.dark,
+        ),
         useMaterial3: true,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const HomeScreen(title: 'Click The Flag'),
     );
