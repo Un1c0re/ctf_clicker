@@ -1,5 +1,5 @@
 import 'package:ctf_clicker/utils/constants.dart';
-import 'package:ctf_clicker/views/home/home.dart';
+import 'package:ctf_clicker/views/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
