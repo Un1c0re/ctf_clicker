@@ -10,3 +10,6 @@ abstract class DeviceScreenConstants {
     screenHeight = screenSize.height;
   }
 }
+
+const int MAX_COUNTER = 1000000;
+const double TAP_COIN = 0.1;

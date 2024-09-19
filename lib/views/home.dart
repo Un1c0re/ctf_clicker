@@ -29,47 +29,43 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Colors.transparent,
         title: Text(widget.title),
       ),
       body: DecoratedBox(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(colors: [
-            Color.fromRGBO(83, 105, 118, 1),
-            Color.fromRGBO(41, 46, 73, 1)
-          ]),
-        ),
-        child: _widgetTabs[_currentIndex]
-      ),
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Color.fromRGBO(83, 105, 118, 1),
+              Color.fromRGBO(41, 46, 73, 1)
+            ]),
+          ),
+          child: Padding(
+            padding:
+                const EdgeInsets.only(left: 8, top: 80, right: 8, bottom: 8),
+            child: _widgetTabs[_currentIndex],
+          )),
       extendBody: true,
       bottomNavigationBar: SalomonBottomBar(
         currentIndex: _currentIndex,
         onTap: (i) => setState(() => _currentIndex = i),
         items: [
-          /// Home
           SalomonBottomBarItem(
             icon: const Icon(Icons.accessible_forward),
             title: const Text("Тап"),
             selectedColor: Colors.lime,
           ),
-
-          /// Likes
           SalomonBottomBarItem(
             icon: const Icon(Icons.account_balance_wallet),
             title: const Text("Шоп"),
             selectedColor: Colors.cyan,
           ),
-
-          /// Search
           SalomonBottomBarItem(
             icon: const Icon(Icons.bar_chart),
             title: const Text("Борд"),
             selectedColor: Colors.pinkAccent,
           ),
-
-          /// Profile
           SalomonBottomBarItem(
             icon: const Icon(Icons.person),
             title: const Text("Профиль"),
