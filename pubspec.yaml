@@ -15,9 +15,11 @@ dependencies:
   build_runner: ^2.4.12
   path: ^1.9.0
   path_provider: ^2.1.4
+  get: ^4.6.6
 
   salomon_bottom_bar: ^3.3.2
   simple_progress_indicators: ^0.2.0
+  syncfusion_localizations: ^27.1.48
 
 dev_dependencies:
   flutter_test:
@@ -29,5 +31,5 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/png/
-    - assets/png/emoji/
+    - assets/images/
+    - assets/images/emoji/
