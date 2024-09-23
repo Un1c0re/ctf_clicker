@@ -104,9 +104,11 @@ class _TapScreenState extends State<TapScreen> with TickerProviderStateMixin {
               spacing: 8.0,
               runSpacing: 8.0,
               children: boosters.map((booster) {
-                return BoosterWidget(
-                  booster: booster,
-                  onActivate: () => controller.activateBooster(booster),
+                return Obx(
+                  () => BoosterWidget(
+                    booster: booster,
+                    currentCount: controller.counter.value,
+                  ),
                 );
               }).toList(),
             ),

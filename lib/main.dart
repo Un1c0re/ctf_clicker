@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     DeviceScreenConstants.init(context);
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Clicker',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
