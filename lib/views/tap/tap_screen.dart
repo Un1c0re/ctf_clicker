@@ -85,7 +85,7 @@ class _TapScreenState extends State<TapScreen> with TickerProviderStateMixin {
             scale: _animation,
             child: Center(
               child: Image.asset(
-                'assets/images/emoji/cool.png',
+                'assets/images/emoji/default.png',
                 height: 300,
               ),
             ),
