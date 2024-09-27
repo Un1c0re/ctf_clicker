@@ -1,9 +1,9 @@
+import 'package:ctf_clicker/controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:simple_progress_indicators/simple_progress_indicators.dart';
 
 import '../../controllers/tap_controller.dart';
-import '../../models/booster_model.dart';
 import '../../utils/constants.dart';
 import '../widgets/booster_widget.dart';
 
@@ -16,6 +16,7 @@ class TapScreen extends StatefulWidget {
 
 class _TapScreenState extends State<TapScreen> with TickerProviderStateMixin {
   final TapController controller = Get.put(TapController());
+  final UserController userController = Get.put(UserController());
 
   late final AnimationController _controller = AnimationController(
     duration: const Duration(milliseconds: 100),
@@ -30,25 +31,20 @@ class _TapScreenState extends State<TapScreen> with TickerProviderStateMixin {
     ),
   );
 
-  final List<Booster> boosters = [
-    Booster(name: 'x2', price: 5, value: 2, duration: 5),
-    Booster(name: 'x3', price: 15, value: 3, duration: 10),
-    Booster(name: 'x5', price: 30, value: 5, duration: 15),
-  ];
-
   @override
   void dispose() {
     _controller.dispose();
     super.dispose();
   }
 
-  void _onTap() {
+  void _onTap(double tapValue) {
     _controller.forward().then((_) => _controller.reverse());
-    controller.incrementCounter();
+    controller.incrementCounter(tapValue);
   }
 
   @override
   Widget build(BuildContext context) {
+    final userSkin = userController.getSkin();
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -61,7 +57,7 @@ class _TapScreenState extends State<TapScreen> with TickerProviderStateMixin {
                 Image.asset('assets/images/coin.png', height: 32),
                 const SizedBox(width: 10),
                 Obx(() => Text(
-                      '${controller.counter.value.toStringAsFixed(1)} / $MAX_COUNTER',
+                      controller.counter.value.toStringAsFixed(1),
                       style: Theme.of(context).textTheme.headlineMedium,
                     )),
               ],
@@ -80,29 +76,38 @@ class _TapScreenState extends State<TapScreen> with TickerProviderStateMixin {
           ],
         ),
         GestureDetector(
-          onTap: _onTap,
+          onTap: () => _onTap(userSkin.tapValue),
           child: ScaleTransition(
             scale: _animation,
             child: Center(
               child: Image.asset(
-                'assets/images/emoji/default.png',
-                height: 300,
+                userSkin.path,
+                height: 320,
               ),
             ),
           ),
         ),
         Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Бустеры',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                )),
+            const Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: Row(
+                children: [
+                  Text('Бустеры',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                      )),
+                ],
+              ),
+            ),
             const SizedBox(height: 5),
             Wrap(
-              spacing: 8.0,
-              runSpacing: 8.0,
+              alignment: WrapAlignment.spaceBetween,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: 10.0,
+              runSpacing: 10.0,
               children: boosters.map((booster) {
                 return Obx(
                   () => BoosterWidget(

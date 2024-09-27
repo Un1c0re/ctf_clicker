@@ -10,4 +10,10 @@ class Skin {
     required this.price,
     required this.tapValue,
   });
+
+  Skin.defaultSkin()
+      : path = 'assets/images/emoji/default.png',
+        name = 'default dude',
+        price = 0,
+        tapValue = 0.1;
 }

@@ -1,12 +1,14 @@
 import 'package:ctf_clicker/controllers/booster_controller.dart';
+import 'package:ctf_clicker/controllers/tap_controller.dart';
 import 'package:ctf_clicker/utils/constants.dart';
+import 'package:ctf_clicker/utils/snackbars.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../models/booster_model.dart';
 
 class BoosterWidget extends StatelessWidget {
   final Booster booster;
-  final currentCount;
+  final double currentCount;
 
   const BoosterWidget({
     super.key,
@@ -17,9 +19,26 @@ class BoosterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final BoosterController controller = Get.find<BoosterController>();
+    final TapController tapController = Get.find<TapController>();
 
     return GestureDetector(
-      onTap: () => controller.activateBooster(booster, currentCount),
+      onTap: () {
+        bool canActivate = controller.canActivateBooster(booster);
+        bool canBuy = tapController.canDecrementCounter(booster.price);
+
+        if (!canBuy) {
+          errorSnackBar('нет денег');
+          return;
+        }
+
+        if (!canActivate) {
+          errorSnackBar('Бустер уже активирован');
+          return;
+        }
+
+        tapController.decrementCounter(booster.price);
+        controller.activateBooster(booster);
+      },
       child: Obx(() {
         bool isActive = controller.activeBoosters.containsKey(booster);
         int remainingTime = isActive ? controller.activeBoosters[booster]! : 0;

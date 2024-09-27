@@ -1,10 +1,11 @@
-import 'dart:ui';
-
+import 'package:ctf_clicker/controllers/tap_controller.dart';
+import 'package:ctf_clicker/controllers/user_controller.dart';
 import 'package:ctf_clicker/utils/constants.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../models/skin_model.dart';
+import '../../utils/snackbars.dart';
 
 class SkinShopWidget extends StatelessWidget {
   final Skin skin;
@@ -13,6 +14,9 @@ class SkinShopWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userController = Get.find<UserController>();
+    final tapController = Get.find<TapController>();
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 4.0),
       constraints: BoxConstraints(
@@ -38,8 +42,16 @@ class SkinShopWidget extends StatelessWidget {
                 ],
               ),
               ElevatedButton(
-                onPressed: () {},
-                child: Text('купить!'),
+                onPressed: () {
+                  bool canBuy = tapController.canDecrementCounter(skin.price);
+                  if (!canBuy) {
+                    errorSnackBar('нет денег');
+                    return;
+                  }
+                  tapController.decrementCounter(skin.price);
+                  userController.setSkin(skin);
+                },
+                child: const Text('купить!'),
               ),
             ],
           )

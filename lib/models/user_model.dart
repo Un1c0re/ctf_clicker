@@ -1,27 +1,25 @@
+import 'package:ctf_clicker/models/skin_model.dart';
+
 class UserModel {
   final int id;
   final String name;
-  final int count;
+  int count = 0;
+  Skin skin;
 
   UserModel({
     required this.id,
     required this.name,
     required this.count,
+    required this.skin,
   });
 
-  factory UserModel.fromMap(Map<String, dynamic> map) {
-    return UserModel(
-      id: map['id'] as int,
-      name: map['name'] as String,
-      count: map['count'] as int,
-    );
-  }
+  String get username => name;
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'name': name,
-      'count': count,
-    };
-  }
+  int get userCount => count;
+
+  set userCount(int value) => count = value;
+
+  Skin get userSkin => skin;
+
+  set userSkin(Skin newSkin) => skin = newSkin;
 }
