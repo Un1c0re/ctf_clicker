@@ -49,7 +49,8 @@ class SkinShopWidget extends StatelessWidget {
                     return;
                   }
                   tapController.decrementCounter(skin.price);
-                  userController.setSkin(skin);
+                  userController.setSkin = skin;
+                  successSnackBar('Новый дюд!');
                 },
                 child: const Text('купить!'),
               ),

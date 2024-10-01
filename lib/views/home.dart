@@ -1,11 +1,9 @@
-import 'package:ctf_clicker/utils/constants.dart';
 import 'package:ctf_clicker/views/board/board_screen.dart';
 import 'package:ctf_clicker/views/profile/profile_screen.dart';
 import 'package:ctf_clicker/views/shop/shop_screen.dart';
 import 'package:ctf_clicker/views/tap/tap_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-import 'package:simple_progress_indicators/simple_progress_indicators.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.title});
