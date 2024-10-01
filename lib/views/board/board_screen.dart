@@ -1,3 +1,5 @@
+import 'package:ctf_clicker/utils/constants.dart';
+import 'package:ctf_clicker/views/widgets/liderboard_widget.dart';
 import 'package:flutter/cupertino.dart';
 
 class BoardScreen extends StatefulWidget {
@@ -10,10 +12,17 @@ class BoardScreen extends StatefulWidget {
 class _BoardScreenState extends State<BoardScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Text('Здесь будет борда'),
+        Text(
+          'Leaderboard!',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        ScoreWidget(),
       ],
     );
   }
