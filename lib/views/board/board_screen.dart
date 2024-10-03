@@ -1,4 +1,3 @@
-import 'package:ctf_clicker/utils/constants.dart';
 import 'package:ctf_clicker/views/widgets/liderboard_widget.dart';
 import 'package:flutter/cupertino.dart';
 

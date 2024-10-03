@@ -1,7 +1,6 @@
 import 'package:ctf_clicker/controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:simple_progress_indicators/simple_progress_indicators.dart';
 
 import '../../controllers/tap_controller.dart';
 import '../../utils/constants.dart';

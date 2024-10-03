@@ -1,6 +1,5 @@
 import 'package:ctf_clicker/controllers/flag_controller.dart';
 import 'package:ctf_clicker/controllers/tap_controller.dart';
-import 'package:ctf_clicker/controllers/tap_controller.dart';
 import 'package:ctf_clicker/controllers/user_controller.dart';
 import 'package:ctf_clicker/utils/styles.dart';
 import 'package:flutter/material.dart';
