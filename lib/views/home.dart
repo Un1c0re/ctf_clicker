@@ -30,14 +30,23 @@ class _HomeScreenState extends State<HomeScreen> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Roboto',
+          ),
+        ),
       ),
       body: DecoratedBox(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [
-              Color.fromRGBO(83, 105, 118, 1),
-              Color.fromRGBO(41, 46, 73, 1)
-            ]),
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color.fromRGBO(63, 85, 98, 1),
+                  Color.fromRGBO(31, 36, 63, 1)
+                ]),
           ),
           child: Padding(
             padding:

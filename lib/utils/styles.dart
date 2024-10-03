@@ -16,9 +16,9 @@ InputDecoration flagField = const InputDecoration(
       Radius.circular(10.0),
     ),
   ),
-  errorBorder: OutlineInputBorder(
+  disabledBorder: OutlineInputBorder(
     borderSide: BorderSide(
-      color: Colors.transparent,
+      color: Colors.greenAccent,
     ),
     borderRadius: BorderRadius.all(
       Radius.circular(10.0),

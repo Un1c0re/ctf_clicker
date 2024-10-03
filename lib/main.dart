@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
           seedColor: Colors.indigo,
           brightness: Brightness.dark,
         ),
+        fontFamily: 'Rubick',
         useMaterial3: true,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

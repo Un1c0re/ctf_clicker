@@ -15,8 +15,9 @@ class _ShopScreenState extends State<ShopScreen> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          EdgeInsets.only(bottom: DeviceScreenConstants.screenHeight * 0.06),
+      padding: EdgeInsets.only(
+          top: DeviceScreenConstants.screenHeight * 0.025,
+          bottom: DeviceScreenConstants.screenHeight * 0.06),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

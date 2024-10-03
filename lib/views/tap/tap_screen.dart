@@ -63,16 +63,8 @@ class _TapScreenState extends State<TapScreen> with TickerProviderStateMixin {
               ],
             ),
             const SizedBox(height: 20),
-            Obx(() => ProgressBar(
-                  width: double.maxFinite,
-                  value: controller.counter.value / MAX_COUNTER,
-                  gradient: const LinearGradient(
-                    colors: [
-                      Colors.blue,
-                      Colors.green,
-                    ],
-                  ),
-                )),
+            Text('Скин: ${userSkin.name}'),
+            Text('Дает: +${userSkin.tapValue} дюдкоинов')
           ],
         ),
         GestureDetector(

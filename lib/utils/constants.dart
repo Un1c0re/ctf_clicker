@@ -46,3 +46,25 @@ final List<Skin> skins = [
       price: 4000,
       tapValue: 4),
 ];
+
+List<dynamic> RAW_DATA = [
+  {'name': 'dude1', 'value': 100},
+  {'name': 'dude2', 'value': 20},
+  {'name': 'dude3', 'value': 50},
+  {'name': 'dude4', 'value': 65},
+  {'name': 'dude5', 'value': 80},
+  {'name': 'dude6', 'value': 999},
+  {'name': 'dude7', 'value': 90},
+  {'name': 'dude8', 'value': 48},
+  {'name': 'dude9', 'value': 340},
+  {'name': 'dude9', 'value': 141},
+  {'name': 'dude9', 'value': 240},
+  {'name': 'dude10', 'value': 21},
+  {'name': 'dude10', 'value': 21},
+  {'name': 'dude10', 'value': 21},
+  {'name': 'dude10', 'value': 24},
+  {'name': 'dude10', 'value': 20},
+  {'name': 'dude10', 'value': 21},
+  {'name': 'dude10', 'value': 22},
+  {'name': 'dude10', 'value': 21},
+];
