@@ -6,9 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.title});
-
-  final String title;
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -30,9 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: Text(
-          widget.title,
-          style: const TextStyle(
+        title: const Text(
+          'Click The Flag',
+          style: TextStyle(
             fontWeight: FontWeight.bold,
             fontFamily: 'Roboto',
           ),

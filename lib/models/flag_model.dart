@@ -1,5 +1,5 @@
 class Flag {
-  final String value;
+  String value;
   final int price;
   final String path;
 
@@ -13,4 +13,8 @@ class Flag {
       : value = '',
         price = 1000000,
         path = 'assets/images/flag.png';
+
+  factory Flag.fromJson(Map<String, dynamic> json) {
+    return Flag.defaultFlag().value = json['flag'];
+  }
 }

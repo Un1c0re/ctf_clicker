@@ -1,5 +1,5 @@
 import 'package:ctf_clicker/utils/constants.dart';
-import 'package:ctf_clicker/views/home.dart';
+import 'package:ctf_clicker/views/start_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const HomeScreen(title: 'Click The Flag'),
+      home: const StartScreen(),
     );
   }
 }

@@ -33,7 +33,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final UserModel currentUser = controller.user();
+    final UserModel currentUser = controller.getUser()!;
     final Flag flag = flagController.getFlag();
 
     if (flag.value.isNotEmpty) {
