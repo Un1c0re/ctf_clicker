@@ -39,6 +39,7 @@ class _TapScreenState extends State<TapScreen> with TickerProviderStateMixin {
   void _onTap(double tapValue) {
     _controller.forward().then((_) => _controller.reverse());
     controller.incrementCounter(tapValue);
+    userController.setWallet(controller.counter.value);
   }
 
   @override

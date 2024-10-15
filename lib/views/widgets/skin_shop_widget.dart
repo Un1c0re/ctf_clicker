@@ -44,10 +44,17 @@ class SkinShopWidget extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   bool canBuy = tapController.canDecrementCounter(skin.price);
+                  bool isActive = skin == userController.currentSkin;
+
                   if (!canBuy) {
                     errorSnackBar('нет денег');
                     return;
                   }
+                  if (isActive) {
+                    errorSnackBar('Скин уже активирован');
+                    return;
+                  }
+
                   tapController.decrementCounter(skin.price);
                   userController.setSkin = skin;
                   successSnackBar('Новый дюд!');

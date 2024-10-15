@@ -14,7 +14,7 @@ class Users extends Table {
   IntColumn get id => integer().autoIncrement()();
 
   TextColumn get name => text().withLength(min: 1, max: 50)();
-  IntColumn get count => integer().withDefault(const Constant(0))();
+  RealColumn get wallet => real().withDefault(const Constant(0))();
 }
 
 ////////////////////////////////// APPDATABASE ////////////////////////////////

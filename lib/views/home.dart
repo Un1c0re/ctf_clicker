@@ -1,4 +1,4 @@
-import 'package:ctf_clicker/views/board/board_screen.dart';
+import 'package:ctf_clicker/views/score/score_screen.dart';
 import 'package:ctf_clicker/views/profile/profile_screen.dart';
 import 'package:ctf_clicker/views/shop/shop_screen.dart';
 import 'package:ctf_clicker/views/tap/tap_screen.dart';
@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   static final List<Widget> _widgetTabs = <Widget>[
     const TapScreen(),
     const ShopScreen(),
-    const BoardScreen(),
+    const ScoreScreen(),
     const ProfileScreen(),
   ];
 

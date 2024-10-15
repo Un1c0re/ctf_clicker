@@ -40,14 +40,14 @@ class FlagWidget extends StatelessWidget {
                 ],
               ),
               ElevatedButton(
-                onPressed: () {
-                  bool canBuy = tapController.canDecrementCounter(1000);
+                onPressed: () async {
+                  bool canBuy = tapController.canDecrementCounter(flag.price);
                   if (!canBuy) {
                     errorSnackBar('нет денег');
                     return;
                   }
                   tapController.decrementCounter(flag.price);
-                  controller.getFlagValue();
+                  await controller.getFlagValue();
                   successSnackBar('Вы получили флаг!');
                 },
                 child: const Text('Купить!'),

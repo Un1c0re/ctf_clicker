@@ -4,6 +4,9 @@ InputDecoration flagField = const InputDecoration(
   floatingLabelStyle: TextStyle(
     color: Colors.white,
   ),
+  helperStyle: TextStyle(
+    color: Colors.white,
+  ),
   isCollapsed: true,
   contentPadding: EdgeInsets.all(20),
   filled: true,

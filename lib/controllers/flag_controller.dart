@@ -7,12 +7,12 @@ import 'package:http/http.dart' as http;
 import '../models/flag_model.dart';
 
 class FlagController extends GetxController {
-  Flag flag = Flag.defaultFlag();
+  final flag = Flag.defaultFlag().obs;
   final _flagApi = ApiEndpoints.getFlag;
 
-  bool isFlag() => flag.value.isNotEmpty;
+  bool isFlag() => flag.value.flag.isNotEmpty;
 
-  Flag getFlag() => flag;
+  Flag getFlag() => flag.value;
 
   Future<void> getFlagValue() async {
     try {
@@ -20,8 +20,7 @@ class FlagController extends GetxController {
 
       if (response.statusCode == 200) {
         final jsonData = jsonDecode(response.body);
-        flag = Flag.fromJson(jsonData);
-        update();
+        flag.value = Flag.fromJson(jsonData);
       } else {
         print('Ошибка: ${response.statusCode}');
       }

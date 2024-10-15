@@ -5,7 +5,7 @@ void cancelAction() => Get.back();
 
 void successSnackBar(title) {
   Get.snackbar(
-    'Успешно!',
+    'Успешно',
     title,
     backgroundColor: Colors.tealAccent.withOpacity(0.4),
     colorText: Colors.white,
@@ -18,7 +18,7 @@ void successSnackBar(title) {
 void boosterSnackBar(title) {
   Get.back();
   Get.snackbar(
-    'Успешно!',
+    'Успешно',
     title,
     backgroundColor: const Color.fromARGB(255, 174, 79, 255).withOpacity(0.4),
     colorText: Colors.white,

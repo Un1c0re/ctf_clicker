@@ -1,10 +1,10 @@
+import 'package:ctf_clicker/controllers/score_controller.dart';
 import 'package:ctf_clicker/controllers/user_controller.dart';
 import 'package:ctf_clicker/utils/snackbars.dart';
 import 'package:ctf_clicker/views/home.dart';
+import 'package:ctf_clicker/views/widgets/dude_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../models/user_model.dart';
 
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
@@ -15,6 +15,7 @@ class StartScreen extends StatefulWidget {
 
 class _StartScreenState extends State<StartScreen> {
   UserController controller = Get.put(UserController());
+  ScoreController scoreController = Get.put(ScoreController());
 
   Future<void> toHomeScreen() async {
     if (controller.getUser() == null) {
@@ -30,6 +31,7 @@ class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: const Text(
@@ -40,7 +42,6 @@ class _StartScreenState extends State<StartScreen> {
           ),
         ),
       ),
-      extendBody: true,
       body: DecoratedBox(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -51,20 +52,42 @@ class _StartScreenState extends State<StartScreen> {
                 Color.fromRGBO(31, 36, 63, 1)
               ]),
         ),
-        child: Padding(
-          padding: const EdgeInsets.only(left: 8, top: 80, right: 8, bottom: 8),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Text('Click the Dude!'),
-              ElevatedButton(
-                onPressed: () async {
-                  await toHomeScreen();
-                },
-                child: const Text('Начать'),
-              ),
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const DudeSwitcher(),
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  style: const ButtonStyle(
+                    padding: WidgetStatePropertyAll(EdgeInsets.symmetric(vertical: 15, horizontal: 45)),
+                    shape: WidgetStatePropertyAll(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                    ),
+                    backgroundColor: WidgetStatePropertyAll(Colors.white),
+                  ),
+                  onPressed: () async {
+                    await toHomeScreen();
+                  },
+                  child: const Text(
+                    'Начать',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
