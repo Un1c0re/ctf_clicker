@@ -34,7 +34,7 @@ class Score {
   }
 
   void startRequestData(Function(List<dynamic>) onDataReceived) {
-    _timer = Timer.periodic(const Duration(seconds: 30), (timer) async {
+    _timer = Timer.periodic(const Duration(seconds: 10), (timer) async {
       try {
         final data = await scoreDataRequest();
         onDataReceived(data);

@@ -14,7 +14,7 @@ class DataSender {
   }
 
   void startSendingData(String Function() getPath) {
-    _timer = Timer.periodic(const Duration(seconds: 30), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 10), (timer) {
       final path = getPath();
       sendDataToServer(path);
     });

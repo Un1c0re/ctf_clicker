@@ -11,12 +11,11 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
-  drift: ^2.20.2
-  build_runner: ^2.4.12
   path: ^1.9.0
   path_provider: ^2.1.4
   get: ^4.6.6
   http: ^1.2.2
+  shared_preferences: ^2.3.2
 
   random_name_generator: ^1.4.0
   salomon_bottom_bar: ^3.3.2

@@ -1,5 +1,4 @@
 import 'package:ctf_clicker/models/skin_model.dart';
-import 'package:random_name_generator/random_name_generator.dart';
 
 class UserModel {
   final int id;
@@ -12,12 +11,6 @@ class UserModel {
     required this.name,
     this.wallet = 0,
   });
-
-  UserModel.newUser()
-      : id = 0,
-        name = RandomNames(Zone.china).name().replaceAll(' ', ''),
-        wallet = 0,
-        skin = Skin.defaultSkin();
 
   String get username => name;
 

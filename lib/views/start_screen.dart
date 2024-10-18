@@ -20,7 +20,7 @@ class _StartScreenState extends State<StartScreen> {
   Future<void> toHomeScreen() async {
     if (controller.getUser() == null) {
       try {
-        await controller.regUser();
+        await controller.loadUserData();
         Get.offAll(() => const HomeScreen());
       } catch (exception) {
         errorSnackBar(exception.toString());
@@ -63,7 +63,8 @@ class _StartScreenState extends State<StartScreen> {
               children: [
                 ElevatedButton(
                   style: const ButtonStyle(
-                    padding: WidgetStatePropertyAll(EdgeInsets.symmetric(vertical: 15, horizontal: 45)),
+                    padding: WidgetStatePropertyAll(
+                        EdgeInsets.symmetric(vertical: 15, horizontal: 45)),
                     shape: WidgetStatePropertyAll(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(
